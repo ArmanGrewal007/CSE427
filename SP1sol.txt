@@ -1,0 +1,64 @@
+
+VM - 47
+Template - 75
+Tag - 89
+DRS - 104
+Migration - 152
+----------------------------------------------------------------------------
+1. Create a VM and implement cloning for the same in both the scenarios of fully cloned
+and linked cloned VM and then make hardware changes to the linked clone VM which is applicable on both
+
+VM > Manage > Clone from current state > Linked clone 
+VM > Manage > Clone from current state > Full clone 
+
+Just change any setting on linked clone (like increasing RAM), any change on linked clone will also be reflected on parent VM.
+
+----------------------------------------------------------------------------
+2. Create VMs of almost same configuration with network capabilities as of your physical
+system and test how many such VMs can be supported by the physical system of same configuration
+
+
+
+
+
+----------------------------------------------------------------------------
+3. Lets say you are the server administrator and you find that load on one guest machine
+increases and you have decided to migrate guest machine from one host system to another host system with using HOL. Perform this task and also create alarm on guest machine with warning signal at 75%
+and critical signal at 90%.
+
+
+
+----------------------------------------------------------------------------
+4. In VMware install two guest machines. Now create a network between two guest machines and
+also show packet transfer between guest machines
+
+----------------------------------------------------------------------------
+5. Create a category 'Cloud' and then create a tag 'Virtualization' under this category that
+will be associated with VMs, Host and Clusters only.
+
+----------------------------------------------------------------------------
+6. Implement an efficient method to search the currently running virtual machines of same
+type of operating system in sphere web client.
+
+
+----------------------------------------------------------------------------
+7. In HOL migrate Virtual machine from one host to another host Also create template of
+virtual machine
+
+
+----------------------------------------------------------------------------
+8. Create a warning alert if the host CPU usage exceeds 70% for 10 mins and keep it
+critical if it is 85% for 5 mins, and shut down the guest machine.
+
+
+----------------------------------------------------------------------------
+9. VMware provides several tools to help you monitor your virtual environment and to loc
+the source of potential issues and current problems. Monitor Host CPU Usage, Virtual
+Machine CPU Usage and Combined CPU Usage using charts.
+
+
+
+----------------------------------------------------------------------------
+10. Create a machine with 1gb of Ram, network where guest machine is having private
+address, and dynamic storage of 20 gb. Create an independent copy of the same
+

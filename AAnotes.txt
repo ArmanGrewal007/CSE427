@@ -1,0 +1,91 @@
+1. VMWare
+
+A linked clone is created from a master VM and shares virtual disks with its parent VM but has its own delta disk for changes.
+VM > Manage > Clone from current state > Linked clone
+
+A full clone is a complete copy of a VM, including all virtual disks and settings. 
+VM > Manage > Clone from current state > Full clone 
+
+A snapshot is a point-in-time copy of a VM's state.
+
+A template is a pre-configured VM that can be used to create new VMs quickly and consistently.
+
+Open Virtualization Format is a standard format for packaging and distributing VMs.
+
+2. Docker desktop
+https://www.docker.com/products/docker-desktop/
+
+
+
+3. Cloudsim
+https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html
+https://eclipseide.org/
+https://github.com/Cloudslab/cloudsim/releases/tag/cloudsim-3.0.3
+http://www.java2s.com/example/jar/c/download-commonsmath3361jar-file.html
+
+
+4. HOL
+
+You use tags to add metadata to inventory objects
+vSphere Availability is a set of features and functionalities in VMware vSphere that is designed to ensure the availability and uptime of virtual machines (VMs) running on the platform
+E.g. DRS, High Availability, Fault Tolerance, ...
+VSphere has a master slave architecture in which some VMs are clustered together and one master is selected from them using election process, and rest are slaves. The master host is responsible for monitoring the health of the other hosts in the cluster, and for detecting and responding to failures. Election process occurs when ->
+	HA is enabled
+	Master host fails/shutdowns/goes into maintainance mode
+	Management network partition occurs
+HA is a feature in VSphere availability that provides automatic restart of VMs in host failure.
+
+DRS is responsible for balancing resource utilization across the cluster, ensuring that VMs are distributed evenly across the hosts and that resources are utilized efficiently. Memory Usage/Network Usage/Storage Usage
+
+Heartbeat Datastores is another layer of protection allows vSphere HA to monitor hosts when a management network partition occurs and to continue to respond to failures that occur.
+
+FT is a VMWare VSphere feature that provide continuous availability of VMs by creating a live shadow copy of a primary VM. The shadow copy, known as the secondary VM, runs on a different host in the cluster than the primary VM and is kept in sync with the primary VM in real-time. 
+
+-------- Creating a VM (47)
+Menu > VMs and Templates
+Select Datacenter > New VM 
+Name the VM > Select storage, Compatibility, GuestOS
+Customise hardware
+-------- Adding an ISO file (59)
+Right click on newly created VM, edit settings
+Video Card > Content library ISO file
+Choose ISO > Connect > OK
+Start the VM > Web console > Minimal installation > Linux kernel: Generic
+-------- Cloning to template (75)
+Menu > VMs and Templates
+Right click on VM > Clone to template > Select name, storage and configurations
+You can create new VMs from this template
+--------Tagging (89)
+You can search on search bar --> save search with a name for easier searching
+Menu > Tags and custom attributes
+Categories section > New > category name > create
+Tags section > Select category > Create tag > tag name > Create
+-------- Assigning tags to VMs
+Menu > VMs and Templates
+Right click on a VM > Tags and custom attributes > Assign tag > select the tag
+Now search the tag in search bar.
+-------- Distributed Resource Scheduler (104)
+-------- Configuring VSphere availability (110)
+Menu > Hosts and Clusters > select datacenter > Actions > Settings > VSphere availability > Edit
+Enable VSphere HA
+Failure and Responses > VM monitoring > VM and application monitoring
+Admission control > Cluster resource percentage
+Heartbeat datastores > Automatically select datastores accessible from the hosts.
+
+Can click on summary to see HA is running
+
+Menu > Hosts and Clusters > select datacenter > Actions > Settings > VSphere DRS > Edit
+Enable VSphere DRS
+> Fully automated > 
+
+-------- Seeing default alerts (126) Menu > Events
+-------- Setting alarms (128)
+Menu > Hosts and Clusters > Select vCenter (not datacenter) > Configure tab > Alarm definitions > 
+
+Select an alarm and Edit > 
+Specify name
+Specify alarm rule 1 > specify CPU/Memory usage > Warning/Critical
+Add advanced action > Enter maintainnace mode
+Specify Reset rule > If conditions that triggered the alarm are no longer there, additional actions can take place
+-------- Migrate VM (157)
+
